@@ -1,0 +1,8 @@
+[package]
+name = "termbrowser"
+version = "0.1.0"
+authors = ["Tpt <thomas@pellissier-tanon.fr>"]
+
+[dependencies]
+actix-web = "0.6"
+ansi_term = "0.11"
