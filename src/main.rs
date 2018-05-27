@@ -5,12 +5,16 @@ extern crate image;
 mod img;
 
 use actix_web::{server, App, HttpRequest, Responder};
-use ansi_term::Color::Red;
+use image::GenericImage;
 use img::print_image;
 
+const SIZE: u32 = 50;
+
 fn display(req: HttpRequest) -> impl Responder {
-    let image = image::open("imgs/happy_ferris.pgn").unwrap();
-    print_image(image, true, 100, 100)
+    let image = image::open("imgs/happy_ferris.png").unwrap();
+    let height = SIZE;
+    let width = (image.width() * height) / image.height();
+    print_image(image, true, width, height)
 }
 
 fn main() {
