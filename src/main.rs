@@ -27,7 +27,9 @@ fn tldr(req: HttpRequest) -> impl Responder {
 }
 
 fn main() {
-    server::new(|| App::new().resource("/", |r| r.f(tldr)))
+    server::new(|| App::new()
+        .resource("/tldr", |r| r.f(tldr))
+        .resource("/ferris", |r| r.f(display)))
         .bind("0.0.0.0:8000")
         .expect("Can not bind to port 8000")
         .run();
