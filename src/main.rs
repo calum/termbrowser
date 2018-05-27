@@ -1,5 +1,8 @@
 extern crate actix_web;
 extern crate ansi_term;
+extern crate image;
+
+mod img;
 
 use actix_web::{server, App, HttpRequest, Responder};
 use ansi_term::Color::Red;
